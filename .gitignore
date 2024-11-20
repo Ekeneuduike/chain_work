@@ -96,3 +96,7 @@ chain_work_backend\.idea
 
 .project.md
 
+#contracts module 
+chain_work_contracts\.gitmodules
+
+
