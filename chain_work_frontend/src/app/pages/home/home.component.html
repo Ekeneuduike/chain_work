@@ -1,0 +1,47 @@
+<div class="homepage">
+    <header class="hero-section">
+      <div class="container">
+        <h1 class="title animate__animated animate__fadeInDown">
+          Empowering Freelancers & Clients
+        </h1>
+        <p class="subtitle animate__animated animate__fadeInUp">
+          Connect, Collaborate, and Succeed with Milestone-Based Payments
+        </p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary" (click)="navigateTo('freelancers')">I’m a Freelancer</button>
+          <button class="btn btn-secondary" (click)="navigateTo('clients')">I’m a Client</button>
+        </div>
+      </div>
+    </header>
+  
+    <section class="features-section">
+      @for (feature of features; track feature.title){
+        <div class="feature-card animate__animated animate__fadeInLeft" >
+          <img [src]="feature.icon" alt="{{ feature.title }}" />
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      }
+     
+    </section>
+  
+    <section class="testimonials-section">
+      <h2 class="section-title">What People Are Saying</h2>
+      @for(testimonial of testimonials;  track testimonial.author){
+        <div class="testimonial-card">
+          <p class="quote">"{{ testimonial.quote }}"</p>
+          <p class="author">- {{ testimonial.author }}</p>
+        </div>
+      }
+     
+    </section>
+  
+    <footer class="footer">
+      <p>&copy; {{ currentYear }} Freelance Platform. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#"><img src="assets/icons/facebook.svg" alt="Facebook" /></a>
+        <a href="#"><img src="assets/icons/twitter.svg" alt="Twitter" /></a>
+        <a href="#"><img src="assets/icons/linkedin.svg" alt="LinkedIn" /></a>
+      </div>
+    </footer>
+  </div>

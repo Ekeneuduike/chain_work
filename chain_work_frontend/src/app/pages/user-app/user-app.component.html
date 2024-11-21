@@ -1,0 +1,46 @@
+<div class="job-postings">
+  <header class="header">
+    <h1>Available Job Postings</h1>
+    <div class="filters">
+      <input
+        type="text"
+        placeholder="Search by title or company..."
+        [(ngModel)]="searchTerm"
+        (input)="filterJobs()"
+      />
+      <select [(ngModel)]="selectedCategory" (change)="filterJobs()">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of jobCategories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+      <select [(ngModel)]="sortOption" (change)="sortJobs()">
+        <option value="latest">Sort by: Latest</option>
+        <option value="oldest">Sort by: Oldest</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="job-list">
+    @if(filteredJobs.length === 0){
+    <div class="no-jobs">
+      No jobs match your criteria. Try changing the filters!
+    </div>
+    } @for(job of filteredJobs; track job.id){
+    <div class="job-card animate__animated animate__fadeIn">
+      <h3 class="job-title">{{ job.title }}</h3>
+      <p class="company">{{ job.company }}</p>
+      <p class="category">{{ job.category }}</p>
+      <p class="description">{{ job.description }}</p>
+      <div class="actions">
+        <button class="btn btn-primary" (click)="viewDetails(job.id)">
+          View Details
+        </button>
+        <button class="btn btn-secondary" (click)="applyToJob(job.id)">
+          Apply Now
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+</div>

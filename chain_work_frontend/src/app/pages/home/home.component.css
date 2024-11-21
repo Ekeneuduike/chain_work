@@ -1,0 +1,126 @@
+.homepage {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+  }
+  
+  .hero-section {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .hero-section .title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-section .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-section .cta-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  .hero-section .cta-buttons .btn-primary {
+    background-color: #ff6f61;
+    color: #fff;
+  }
+  
+  .hero-section .cta-buttons .btn-primary:hover {
+    background-color: #e65b50;
+  }
+  
+  .hero-section .cta-buttons .btn-secondary {
+    background-color: #fff;
+    color: #2575fc;
+    border: 2px solid #2575fc;
+  }
+  
+  .hero-section .cta-buttons .btn-secondary:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .features-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background: #f9f9f9;
+  }
+  
+  .features-section .feature-card {
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .features-section .feature-card img {
+    width: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .features-section .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .features-section .feature-card p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .testimonials-section {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .testimonials-section .section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .testimonials-section .testimonial-card {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+  }
+  
+  .testimonials-section .testimonial-card .quote {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .testimonials-section .testimonial-card .author {
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .footer .social-links {
+    margin-top: 10px;
+  }
+  
+  .footer .social-links a {
+    margin: 0 5px;
+  }
+  
+  .footer .social-links img {
+    width: 20px;
+    height: 20px;
+  }
+  
