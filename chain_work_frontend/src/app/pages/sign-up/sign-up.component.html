@@ -1,1 +1,68 @@
-<p>sign-up works!</p>
+<div class="auth-wrapper">
+  <div class="auth-background">
+    <div class="overlay">
+        <div class="auth-container">
+            <div class="auth-box">
+              <h2>{{ isSigningUp ? "Create Account" : "Welcome Back" }}</h2>
+        
+              @if(!showForm){
+              <p>
+                {{
+                  isSigningUp
+                    ? "Sign up with your wallet to get started"
+                    : "Log in with your wallet to continue"
+                }}
+              </p>
+              } @if(!showForm){
+              <!-- Wallet Button -->
+              <div>
+                <button class="wallet-btn" (click)="connectWallet()">
+                  <img src="/assets/wallet-icon.svg" alt="Wallet" class="wallet-icon" />
+                  {{ isSigningUp ? "Sign Up with Wallet" : "Log In with Wallet" }}
+                </button>
+                <p class="toggle-text">
+                  {{
+                    isSigningUp ? "Already have an account?" : "Don't have an account?"
+                  }}
+                  <a (click)="isSigningUp = !isSigningUp">
+                    {{ isSigningUp ? "Log in" : "Sign up" }}
+                  </a>
+                </p>
+              </div>
+              } @if(showForm){
+              <!-- Additional Signup Form -->
+              <form (ngSubmit)="signup()">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input id="name" [(ngModel)]="userData.name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input
+                    id="email"
+                    [(ngModel)]="userData.email"
+                    name="email"
+                    type="email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="role">Role</label>
+                  <select id="role" [(ngModel)]="userData.role" name="role" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="user">client</option>
+                    <option value="admin">freelancer</option>
+                    <option value="admin">lender</option>
+
+                  </select>
+                </div>
+                <button type="submit" class="submit-btn">Complete Signup</button>
+              </form>
+              }
+            </div>
+          </div>
+    </div>
+  </div>
+
+ 
+</div>

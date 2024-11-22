@@ -8,8 +8,8 @@
           Connect, Collaborate, and Succeed with Milestone-Based Payments
         </p>
         <div class="cta-buttons">
-          <button class="btn btn-primary" (click)="navigateTo('freelancers')">I’m a Freelancer</button>
-          <button class="btn btn-secondary" (click)="navigateTo('clients')">I’m a Client</button>
+          <button class="btn btn-primary" [routerLink]="['/login']" [queryParams]="{ role: 'freelancer' }">I’m a Freelancer</button>
+          <button class="btn btn-secondary" [routerLink]="['/login']" [queryParams]="{ role: 'client' }">I’m a Client</button>
         </div>
       </div>
     </header>

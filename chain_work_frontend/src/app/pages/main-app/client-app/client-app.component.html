@@ -1,0 +1,62 @@
+
+
+<!-- Filters & Search Section -->
+<div class="filters-container">
+  <!-- Search Bar -->
+  <input
+    type="text"
+    placeholder="Search jobs..."
+    [(ngModel)]="searchQuery"
+    class="search-bar"
+  />
+
+  <!-- Filters -->
+  <div class="filters">
+    <!-- Job Type -->
+    <select [(ngModel)]="filters.type" class="filter-select">
+      <option value="">All Job Types</option>
+      <option value="Full-Time">Full-Time</option>
+      <option value="Part-Time">Part-Time</option>
+      <option value="Freelance">Freelance</option>
+      <option value="Internship">Internship</option>
+    </select>
+
+    <!-- Location -->
+    <input
+      type="text"
+      placeholder="Location"
+      [(ngModel)]="filters.location"
+      class="filter-input"
+    />
+
+    <!-- Experience Level -->
+    <select [(ngModel)]="filters.experience" class="filter-select">
+      <option value="">Any Experience</option>
+      <option value="Entry">Entry Level</option>
+      <option value="Mid">Mid Level</option>
+      <option value="Senior">Senior Level</option>
+    </select>
+  </div>
+</div>
+
+<!-- Jobs List -->
+<div class="content">
+  <h2 class="section-title">Jobs Posted</h2>
+@for(job of filteredJobs; track job){
+  <div
+  class="job-card"
+>
+  <div class="job-card-header">
+    <h3 class="job-title">{{ job.title }}</h3>
+    <span class="job-type">{{ job.type }}</span>
+  </div>
+  <p class="job-description">{{ job.description }}</p>
+  <div class="job-details">
+    <span class="job-location">📍 {{ job.location }}</span>
+    <span class="job-date">{{ job.date }}</span>
+  </div>
+</div>
+}
+
+ 
+</div>
