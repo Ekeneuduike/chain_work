@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Our Talented Freelancers</h1>
+    
+    <div class="talent-list">
+        @for (talent of talents; track $index) {
+            <div class="talent-card" >
+                <img class="profile-img" [src]="talent.profileImage" alt="{{ talent.name }}">
+                
+                <div class="talent-info">
+                  <h2>{{ talent.name }}</h2>
+                  <p class="title">{{ talent.title }}</p>
+                  <p class="skills">Skills: {{ talent.skills.join(', ') }}</p>
+                  <p class="rate">Hourly Rate: {{ talent.hourlyRate }}</p>
+                </div>
+                
+                <div class="action">
+                  <button>View Profile</button>
+                </div>
+              </div>
+        }
+    
+    </div>
+  </div>
+  

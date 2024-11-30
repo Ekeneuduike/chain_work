@@ -1,4 +1,7 @@
 package com.example.demo.repo;
 
-public interface AppRepo {
+import com.example.demo.doa.AppUser;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AppRepo extends JpaRepository<AppUser, String> {
 }

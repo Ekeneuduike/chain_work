@@ -1,0 +1,99 @@
+/* credit-listing.component.css */
+
+.creditor-dashboard {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background: #f9f9f9;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    font-size: 30px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .add-credit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-credit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .credit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .credit-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+  }
+  
+  .credit-bar:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .credit-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-grow: 1;
+  }
+  
+  .credit-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+  }
+  
+  .credit-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .credit-value {
+    font-size: 18px;
+    font-weight: 500;
+    color: #222;
+  }
+  
+  .edit-credit-btn {
+    background-color: #2196F3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-credit-btn:hover {
+    background-color: #0b7dda;
+  }
+  

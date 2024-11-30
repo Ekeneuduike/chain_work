@@ -1,62 +1,204 @@
-
-
-<!-- Filters & Search Section -->
-<div class="filters-container">
-  <!-- Search Bar -->
-  <input
-    type="text"
-    placeholder="Search jobs..."
-    [(ngModel)]="searchQuery"
-    class="search-bar"
-  />
-
-  <!-- Filters -->
-  <div class="filters">
-    <!-- Job Type -->
-    <select [(ngModel)]="filters.type" class="filter-select">
-      <option value="">All Job Types</option>
-      <option value="Full-Time">Full-Time</option>
-      <option value="Part-Time">Part-Time</option>
-      <option value="Freelance">Freelance</option>
-      <option value="Internship">Internship</option>
-    </select>
-
-    <!-- Location -->
-    <input
-      type="text"
-      placeholder="Location"
-      [(ngModel)]="filters.location"
-      class="filter-input"
-    />
-
-    <!-- Experience Level -->
-    <select [(ngModel)]="filters.experience" class="filter-select">
-      <option value="">Any Experience</option>
-      <option value="Entry">Entry Level</option>
-      <option value="Mid">Mid Level</option>
-      <option value="Senior">Senior Level</option>
-    </select>
+<nav class="navbar">
+  <!-- Logo -->
+  <div class="navbar-left">
+    <h1 class="logo">JobPortal</h1>
   </div>
-</div>
 
-<!-- Jobs List -->
-<div class="content">
-  <h2 class="section-title">Jobs Posted</h2>
-@for(job of filteredJobs; track job){
-  <div
-  class="job-card"
->
-  <div class="job-card-header">
-    <h3 class="job-title">{{ job.title }}</h3>
-    <span class="job-type">{{ job.type }}</span>
+  <!-- Center: Links -->
+  <div class="navbar-center">
+    <a routerLink="dashboard" class="nav-link profile-link">Profile</a>
+    <a routerLink="talent" class="nav-link">Talent</a>
+    <a routerLink="proposal" class="nav-link">Proposals</a>
+    <a routerLink="contract" class="nav-link">Contracts</a>
+    <a routerLink="chat" class="nav-link">Chat</a>
   </div>
-  <p class="job-description">{{ job.description }}</p>
-  <div class="job-details">
-    <span class="job-location">📍 {{ job.location }}</span>
-    <span class="job-date">{{ job.date }}</span>
+
+  <!-- Right: Profile -->
+  <div class="navbar-right">
+    <a (click)="triggerNotification()" class="nav-link">
+      <img
+        class="notification-icon"
+        src="../../../../../assets/icons/notification.svg"
+        alt=""
+      />
+      @if(unread){ <span class="warn"></span>
+      }
+    </a>
   </div>
-</div>
+</nav>
+
+
+@if(isVisible){
+  <!-- notification.component.html -->
+ 
+  <div class="notification-overlay" (click)="toogleNotification()">
+    <div class="notification-content">
+      <h3>Notifications</h3>
+      <ul class="notification-list">
+        <li *ngFor="let notification of notifications" 
+            [ngClass]="{
+              'notification-item': true,
+              'success': notification.type === 'success',
+              'error': notification.type === 'error',
+              'info': notification.type === 'info'
+            }">
+          <!-- Icon based on notification type -->
+          <div class="icon">
+            <i *ngIf="notification.type === 'success'" class="fas fa-check-circle" style="color: #28a745;"></i>
+            <i *ngIf="notification.type === 'error'" class="fas fa-exclamation-circle" style="color: #dc3545;"></i>
+            <i *ngIf="notification.type === 'info'" class="fas fa-info-circle" style="color: #007bff;"></i>
+          </div>
+          
+          <div class="message">
+            <strong>{{ notification.topic }}</strong>
+            <p>{{ notification.message }}</p>
+          </div>
+          
+          <small class="timestamp">{{ notification.timestamp | date: 'short' }}</small>
+        </li>
+      </ul>
+      <button (click)="closeNotification()">×</button> <!-- Close button -->
+    </div>
+  </div>
+
+
+
+  <style>
+    /* notification.component.css */
+
+/* Overlay background */
+.notification-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Transparent dark background */
+  z-index: 9; /* Ensure it covers other content */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  animation: slideIn 0.5s ease-out forwards;
 }
 
- 
-</div>
+/* Main notification container */
+.notification-content {
+  background-color: #fff;
+  width: 350px;
+  height: 100%;
+  padding: 20px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px 0 0 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  animation: slideInContent 0.5s ease-out forwards;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 200px;
+}
+
+/* Title */
+.notification-content h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Notification list */
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+}
+
+.notification-item {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.notification-item:hover {
+  background-color: #f0f0f0;
+}
+
+.notification-item.success {
+  border-left: 5px solid #28a745;
+  background-color: #d4edda;
+}
+
+.notification-item.error {
+  border-left: 5px solid #dc3545;
+  background-color: #f8d7da;
+}
+
+.notification-item.info {
+  border-left: 5px solid #007bff;
+  background-color: #cce5ff;
+}
+
+.notification-item .icon {
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification-item .message {
+  flex-grow: 1;
+}
+
+.notification-item .timestamp {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Close button */
+button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #f1f1f1;
+}
+
+@keyframes slideIn {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes slideInContent {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+  </style>
+}
+<router-outlet></router-outlet>

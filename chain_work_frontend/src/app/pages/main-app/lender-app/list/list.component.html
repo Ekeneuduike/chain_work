@@ -1,0 +1,41 @@
+<!-- credit-listing.component.html -->
+
+<div class="creditor-dashboard">
+    <header>
+      <h1>My Credit Listings</h1>
+      <button class="add-credit-btn" >Add New Credit</button>
+    </header>
+  
+    <!-- Credit Listings as Horizontal Bars -->
+    <div class="credit-list">
+      <div class="credit-bar" *ngFor="let credit of credits">
+        <div class="credit-details">
+          <div class="credit-info">
+            <span class="credit-label">Credit Name:</span>
+            <span class="credit-value">{{ credit.name }}</span>
+          </div>
+          <div class="credit-info">
+            <span class="credit-label">Interest Rate:</span>
+            <span class="credit-value">{{ credit.interestRate }}%</span>
+          </div>
+          <div class="credit-info">
+            <span class="credit-label">Available Balance:</span>
+            <span class="credit-value">{{ credit.availableBalance | currency }}</span>
+          </div>
+          <div class="credit-info">
+            <span class="credit-label">Total Borrowed:</span>
+            <span class="credit-value">{{ credit.totalBorrowedAmount | currency }}</span>
+          </div>
+          <div class="credit-info">
+            <span class="credit-label">Total Balance:</span>
+            <span class="credit-value">{{ credit.totalBalance | currency }}</span>
+          </div>
+        </div>
+        <app-health-circle [health]="health"></app-health-circle>
+
+        <!-- Edit Button -->
+        <button class="edit-credit-btn">Edit</button>
+      </div>
+    </div>
+  </div>
+  

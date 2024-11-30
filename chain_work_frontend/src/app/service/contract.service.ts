@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { ethers } from 'ethers';
 
@@ -7,19 +7,23 @@ import { ethers } from 'ethers';
 })
 export class ContractService {
   
+  userAddr = signal<string>('');
   router = inject(Router);
   private provider: ethers.providers.Web3Provider | undefined;
   private signer: ethers.Signer | undefined;
   constructor() {}
 
-  async connectWallet(path:string): Promise<void> {
+ 
+
+  async connectWallet(): Promise<string> {
     if (typeof window.ethereum !== 'undefined') {
+      let address;
       try {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         this.provider = new ethers.providers.Web3Provider(window.ethereum);
         this.signer = this.provider.getSigner();
-        const address = await this.signer.getAddress();
-        console.log('Connected address:', address);
+        address = await this.signer.getAddress();
+        localStorage.setItem('userAddr',address)
         await window.ethereum.request({
           method: 'wallet_addEthereumChain',
           params: [
@@ -36,15 +40,25 @@ export class ContractService {
             },
           ],
         });
-        this.router.navigateByUrl("/app/"+path)
+        
       } 
       catch (error) {
         console.error('User denied account access', error);
       }
-    } else {
+      return address!;
+    } 
+    else {
+      alert("MetaMask is not installed")
+      return "";
       console.log('MetaMask is not installed');
     }
   }
+
+getUserAddr() : string {
+  let userAddr = localStorage.getItem('userAddr')
+  return userAddr ? userAddr : '';
+}
+
 }
 
 declare let window: any;

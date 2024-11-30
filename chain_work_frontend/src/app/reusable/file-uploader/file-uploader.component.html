@@ -1,0 +1,17 @@
+<div class="file-uploader">
+  <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden />
+  <div *ngIf="selectedFile" class="file-details">
+    <img
+      *ngIf="isImage"
+      [src]="imagePreview"
+      alt="Image Preview"
+      class="image-preview"
+    />
+
+    <p>File Name: {{ selectedFile.name }}</p>
+    <p>File Size: {{ selectedFile.size / 1048576 | number }} mb </p>
+  </div>
+  <button class="upload-button" (click)="triggerFileInput()">
+    Upload File
+  </button>
+</div>

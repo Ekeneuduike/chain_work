@@ -1,0 +1,43 @@
+.notification {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    z-index: 10;
+    opacity: 0.9;
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .notification.success {
+    background-color: #4caf50; /* Green */
+  }
+  
+  .notification.error {
+    background-color: #f44336; /* Red */
+  }
+  .notification.info{
+    background-color: rgb(248, 248, 138);
+    color: black;
+  }
+  
+  .cancel-button {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  

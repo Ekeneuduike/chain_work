@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9fafb; /* Light background for better contrast */
+  color: #333;
+} 
+  .navbar-right { position: relative; }
+  
+  .navbar-right .nav-link{
+    cursor: pointer;
+  }
+  
+  .notification-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .warn {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-3);
+    border-radius: 50%;
+    border: 2px solid white; /* Optional: to add a white border around the dot */
+    display: block; /* Hide the dot by default */
+  } /* Show the dot when there is a new or unread notification */
+  .nav-link.new-notification .warn {
+    display: block;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar-center {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-link:hover {
+    transform: scale(1.1);
+  }
+  
+  .profile-link {
+    /* background-color: #2563eb; */
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  

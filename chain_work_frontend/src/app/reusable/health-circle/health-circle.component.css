@@ -1,0 +1,31 @@
+/* health-circle.component.css */
+
+.health-circle-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-background {
+  fill: none;
+  stroke: #e6e6e6;
+  stroke-width: 10;
+}
+
+.circle-foreground {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dasharray 0.3s ease, stroke 0.3s ease;
+}
+
+.health-text {
+  font-size: 16px;
+  font-weight: bold;
+  fill: #333;
+}

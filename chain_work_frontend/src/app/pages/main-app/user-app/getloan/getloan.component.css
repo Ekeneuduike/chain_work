@@ -1,0 +1,73 @@
+/* src/app/loan-listings/loan-listings.component.css */
+.loan-listings {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+  }
+  
+  .summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .summary-item {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .loan-details {
+    margin-bottom: 20px;
+  }
+  
+  .loan {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .loan-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .loan-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .loan-actions button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .status.active {
+    background-color: #28a745;
+  }
+  
+  .status.pending {
+    background-color: #ffc107;
+  }
+  
+  .error-notification {
+    background-color: #dc3545;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  

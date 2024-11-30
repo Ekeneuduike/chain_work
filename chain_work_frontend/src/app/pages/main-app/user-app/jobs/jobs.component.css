@@ -1,0 +1,101 @@
+
+/* Filters & Search Section */
+.filters-container {
+    margin: 2rem;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  
+    gap: 1rem;
+  }
+  
+  .search-bar {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 400px;
+    font-size: 1rem;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* Responsive for smaller screens */
+  }
+  
+  .filter-input,
+  .filter-select {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+  }
+  
+  /* Content Section */
+  .content {
+    padding: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+  }
+  
+  /* Job Cards */
+  .job-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .job-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .job-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2563eb; /* Accent color */
+  }
+  
+  .job-type {
+    background-color: #2563eb;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+  }
+  
+  .job-description {
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+  
+  .job-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .job-location {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  

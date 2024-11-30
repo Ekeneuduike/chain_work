@@ -8,8 +8,10 @@
           Connect, Collaborate, and Succeed with Milestone-Based Payments
         </p>
         <div class="cta-buttons">
-          <button class="btn btn-primary" [routerLink]="['/login']" [queryParams]="{ role: 'freelancer' }">I’m a Freelancer</button>
-          <button class="btn btn-secondary" [routerLink]="['/login']" [queryParams]="{ role: 'client' }">I’m a Client</button>
+          <!-- <button class="btn btn-primary" [routerLink]="['/login']" [queryParams]="{ role: 'freelancer' }">Get Started</button>
+          <button class="btn btn-secondary" [routerLink]="['/login']" [queryParams]="{ role: 'client' }">I’m a Client</button> -->
+          <button class="btn btn-secondary" [routerLink]="['/login']" >Get Started</button>
+
         </div>
       </div>
     </header>
@@ -39,9 +41,9 @@
     <footer class="footer">
       <p>&copy; {{ currentYear }} Freelance Platform. All rights reserved.</p>
       <div class="social-links">
-        <a href="#"><img src="assets/icons/facebook.svg" alt="Facebook" /></a>
-        <a href="#"><img src="assets/icons/twitter.svg" alt="Twitter" /></a>
-        <a href="#"><img src="assets/icons/linkedin.svg" alt="LinkedIn" /></a>
+        <a href="#"><img src="/assets/icons/facebook.svg" alt="Facebook" /></a>
+        <a href="#"><img src="/assets/icons/twitter.svg" alt="Twitter" /></a>
+        <a href="#"><img src="/assets/icons/linkedin.svg" alt="LinkedIn" /></a>
       </div>
     </footer>
   </div>

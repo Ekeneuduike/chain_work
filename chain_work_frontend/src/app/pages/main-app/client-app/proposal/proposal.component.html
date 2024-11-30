@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Proposals</h1>
+
+  <!-- Statistics Section -->
+  <div class="statistics">
+    <div class="stat-card" *ngFor="let stat of statistics">
+      <h2>{{ stat.count }}</h2>
+      <p>{{ stat.title }}</p>
+      <span>{{ stat.trend }}</span>
+    </div>
+  </div>
+
+  <!-- Proposals Section -->
+  <div class="proposal-list">
+    <div class="proposal-card" *ngFor="let proposal of proposals">
+      <div class="proposal-info">
+        <h3>{{ proposal.title }}</h3>
+        <p>{{ proposal.company }}</p>
+        <div class="bid-status-row">
+          <p class="bid-amount">Bid Amount: {{ proposal.bidAmount }}</p>
+          <span class="status" [ngClass]="proposal.status.toLowerCase()">{{ proposal.status }}</span>
+        </div>
+        <div class="submission-action-row">
+          <p class="submission-date">Submitted on {{ proposal.submissionDate }}</p>
+          <button class="view-details">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

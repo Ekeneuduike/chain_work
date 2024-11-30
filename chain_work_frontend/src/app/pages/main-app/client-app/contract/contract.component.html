@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Contracts</h1>
+
+  <!-- Metrics Section -->
+  <div class="metrics">
+    @for( metric of metrics; track $index){
+      <div class="metric-card" >
+        <h2>{{ metric.value }}</h2>
+        <div class="title">{{ metric.title }}</div>
+        <div class="trend">{{ metric.trend }}</div>
+      </div>
+    }
+   
+  </div>
+
+  <!-- Contracts Section -->
+  <div class="contracts">
+    @for(contract of contracts;track $index){
+      <div class="contract-card"  >
+        <div class="contract-details">
+          <h2>{{ contract.title }}</h2>
+          <div class="company">{{ contract.company }}</div>
+          <div class="value">Contract Value: {{ contract.value }}</div>
+          <div class="duration">{{ contract.duration }}</div>
+        </div>
+        <div class="status">{{ contract.status }}</div>
+        <div class="actions">
+          <div class="buttons">
+            <button class="details-btn" (click)="onViewDetails(contract)">View Details</button>
+            <button class="dispute-btn" (click)="onRaiseDispute(contract)">Raise Dispute</button>
+          </div>
+        </div>
+      </div>
+    }
+  
+  </div>
+</div>

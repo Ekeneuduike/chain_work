@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+
+spring:
+  application:
+    name: chain_work
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mock_bank
+    username: postgres
+    password: mylove4u
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  cassandra:
+    contact-points: 127.0.0.1
+    keyspace-name: chain_work
+    port: 9042
+    local-datacenter: datacenter1

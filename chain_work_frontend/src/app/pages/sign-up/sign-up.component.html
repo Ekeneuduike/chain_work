@@ -1,68 +1,158 @@
 <div class="auth-wrapper">
   <div class="auth-background">
     <div class="overlay">
-        <div class="auth-container">
-            <div class="auth-box">
-              <h2>{{ isSigningUp ? "Create Account" : "Welcome Back" }}</h2>
-        
-              @if(!showForm){
-              <p>
-                {{
-                  isSigningUp
-                    ? "Sign up with your wallet to get started"
-                    : "Log in with your wallet to continue"
-                }}
-              </p>
-              } @if(!showForm){
-              <!-- Wallet Button -->
-              <div>
-                <button class="wallet-btn" (click)="connectWallet()">
-                  <img src="/assets/wallet-icon.svg" alt="Wallet" class="wallet-icon" />
-                  {{ isSigningUp ? "Sign Up with Wallet" : "Log In with Wallet" }}
-                </button>
-                <p class="toggle-text">
-                  {{
-                    isSigningUp ? "Already have an account?" : "Don't have an account?"
-                  }}
-                  <a (click)="isSigningUp = !isSigningUp">
-                    {{ isSigningUp ? "Log in" : "Sign up" }}
-                  </a>
-                </p>
-              </div>
-              } @if(showForm){
-              <!-- Additional Signup Form -->
-              <form (ngSubmit)="signup()">
-                <div class="form-group">
-                  <label for="name">Full Name</label>
-                  <input id="name" [(ngModel)]="userData.name" name="name" required />
-                </div>
-                <div class="form-group">
-                  <label for="email">Email Address</label>
-                  <input
-                    id="email"
-                    [(ngModel)]="userData.email"
-                    name="email"
-                    type="email"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="role">Role</label>
-                  <select id="role" [(ngModel)]="userData.role" name="role" required>
-                    <option value="" disabled selected>Select your role</option>
-                    <option value="user">client</option>
-                    <option value="admin">freelancer</option>
-                    <option value="admin">lender</option>
+      @if (!walletNotInstalled){
 
-                  </select>
-                </div>
-                <button type="submit" class="submit-btn">Complete Signup</button>
-              </form>
-              }
-            </div>
+      <div class="auth-container">
+        <div class="auth-box">
+          <h2>{{ isSigningUp ? "Create Account" : "Welcome Back" }}</h2>
+
+          @if(!showForm){
+          <p>
+            {{
+              isSigningUp
+                ? "Sign up with your wallet to get started"
+                : "Log in with your wallet to continue"
+            }}
+          </p>
+          } 
+          @if(!showForm){
+          <!-- Wallet Button -->
+          <div>
+            <button class="wallet-btn" (click)="connectWallet()">
+              <img
+                src="/assets/wallet-icon.svg"
+                alt="Wallet"
+                class="wallet-icon"
+              />
+              {{ isSigningUp ? "Sign Up with Wallet" : "Log In with Wallet" }}
+            </button>
+            <p class="toggle-text">
+              {{
+                isSigningUp
+                  ? "Already have an account?"
+                  : "Don't have an account?"
+              }}
+              <a (click)="isSigningUp = !isSigningUp">
+                {{ isSigningUp ? "Log in" : "Sign up" }}
+              </a>
+            </p>
           </div>
+          } 
+          @if(showForm){
+          <!-- Additional Signup Form -->
+          <form (ngSubmit)="signup()">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                id="name"
+                [(ngModel)]="userData.full_name"
+                name="name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                id="email"
+                [(ngModel)]="userData.email"
+                name="email"
+                type="email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="role">Role</label>
+              <select
+                id="role"
+                [(ngModel)]="userData.role"
+                name="role"
+                required
+              >
+                <option value="" disabled selected>Select your role</option>
+                <option value='Freelancer'>freelancer</option>
+                <option value='Client'>client</option>
+                <option value='Lender'>lender</option>
+              </select>
+            </div>
+            <div class="file-input-container">
+              <input
+                type="file"
+                id="file"
+                (change)="onFileSelected($event)"
+                hidden
+              />
+              <label for="file" class="custom-file-input">
+                <i class="fas fa-upload"></i> Choose a file
+              </label>
+              <span class="file-name">{{ fileName }}</span>
+            </div>
+            <button type="submit" class="submit-btn">Complete Signup</button>
+          </form>
+          }
+        </div>
+      </div>
+
+      }
+
+       @if(walletNotInstalled){
+      <div class="card">
+        <h1 class="card-title">Wallet Connection Error</h1>
+        <p class="card-message">
+          It seems MetaMask is not installed, or there was an error connecting
+          your wallet.
+        </p>
+        <a
+          href="https://metamask.io/download.html"
+          class="card-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download MetaMask
+        </a>
+      </div>
+
+      <style>
+        .card {
+          background-color: #ffffff;
+          padding: 20px 30px;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          max-width: 400px;
+          width: 90%;
+        }
+
+        .card-title {
+          font-size: 24px;
+          color: #333333;
+          margin-bottom: 15px;
+        }
+
+        .card-message {
+          font-size: 16px;
+          color: #666666;
+          margin-bottom: 20px;
+        }
+
+        .card-button {
+          display: inline-block;
+          text-decoration: none;
+          background-color: var(--color-2);
+          color: #ffffff;
+          padding: 10px 20px;
+          border-radius: 5px;
+          font-size: 16px;
+          font-weight: bold;
+          transition: background-color 0.3s ease;
+          margin-bottom: 30px;
+        }
+
+        .card-button:hover {
+          background-color: var(--color-1);
+        }
+      </style>
+      }
     </div>
   </div>
-
- 
 </div>

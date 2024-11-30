@@ -1,0 +1,111 @@
+/* General Styling */
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 98dvw;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  /* Talent List */
+  .talent-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Talent Card */
+  .talent-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .talent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Profile Image */
+  .profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+  }
+  
+  /* Talent Info */
+  .talent-info {
+    flex: 1;
+  }
+  
+  .talent-info h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #222;
+  }
+  
+  .talent-info .title {
+    font-size: 16px;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .talent-info .skills {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .talent-info .rate {
+    font-size: 14px;
+    color: #444;
+    font-weight: bold;
+  }
+  
+  /* Action Section */
+  .action {
+    text-align: center;
+  }
+  
+  .action button {
+    padding: 8px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .action button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .talent-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .action {
+      margin-top: 10px;
+      width: 100%;
+      text-align: right;
+    }
+  }
+  

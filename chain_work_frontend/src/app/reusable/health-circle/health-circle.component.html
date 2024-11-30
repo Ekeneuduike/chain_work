@@ -1,0 +1,18 @@
+<!-- health-circle.component.html -->
+
+<div class="health-circle-container">
+  <svg width="120" height="120" viewBox="0 0 120 120">
+    <!-- Background Circle -->
+    <circle class="circle-background" cx="60" cy="60" r="50"></circle>
+    
+    <!-- Foreground Circle that represents health -->
+    <circle class="circle-foreground" cx="60" cy="60" r="50" 
+      [style.stroke-dasharray]="circleDashArray" [style.stroke]="circleColor">
+    </circle>
+    
+    <!-- Health Text in the center -->
+    <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" class="health-text">
+      {{ health }}%
+    </text>
+  </svg>
+</div>

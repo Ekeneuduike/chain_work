@@ -1,0 +1,163 @@
+<div style="padding: 20px">
+    <!-- Header Section -->
+    <h2 style="color: #4a4a4a; margin-bottom: 20px">Loans Dashboard</h2>
+  
+    <!-- Summary Cards -->
+    <div style="display: flex; gap: 20px; flex-wrap: wrap">
+      <div
+        *ngFor="let item of summaryItems"
+        style="
+          flex: 1 1 calc(25% - 20px);
+          background: #f8f9fa;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        "
+      >
+        <h3 style="margin: 10px 0; font-size: 20px; color: #5a5a5a">
+          {{ item }}
+        </h3>
+        <p
+          style="
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+          "
+        >
+          $10,000
+        </p>
+      </div>
+    </div>
+  
+    <!-- Horizontal Card Section -->
+    <div style="margin-top: 40px">
+      <h3 style="color: #4a4a4a; margin-bottom: 20px">Current Loans</h3>
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div
+          *ngFor="let loan of loans"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <div>
+            <h4 style="margin: 0 0 10px; font-size: 18px; color: #333">
+              {{ loan.title }}
+            </h4>
+            <p style="margin: 0; font-size: 14px; color: #666">
+              {{ loan.institution }}
+            </p>
+          </div>
+          <div>
+            <p style="margin: 5px 0; font-size: 14px; color: #666">
+              Interest Rate: <strong>{{ loan.interestRate }}%</strong>
+            </p>
+            <p style="margin: 5px 0; font-size: 14px; color: #666">
+              Borrowed: <strong>${{ loan.borrowed }}</strong>
+            </p>
+            <p style="margin: 5px 0; font-size: 14px; color: #666">
+              Balance: <strong>${{ loan.balance }}</strong>
+            </p>
+          </div>
+          <div>
+            <button
+              style="
+                background: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                cursor: pointer;
+                margin-right: 10px;
+              "
+            >
+              View Details
+            </button>
+            <button
+              style="
+                background: #ffc107;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                cursor: pointer;
+              "
+            >
+              Repay
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Borrowed Loans Table -->
+    <div style="margin-top: 40px">
+      <h3 style="color: #4a4a4a; margin-bottom: 20px">Borrowed Loans History</h3>
+      <table
+        style="
+          width: 100%;
+          border-collapse: collapse;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <thead style="background: #f8f9fa">
+          <tr>
+            <th
+              *ngFor="let header of tableHeaders"
+              style="
+                text-align: left;
+                padding: 10px 20px;
+                border-bottom: 1px solid #eee;
+              "
+            >
+              {{ header }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let loan of loanHistory">
+            <td style="padding: 10px 20px; border-bottom: 1px solid #eee">
+              {{ loan.name }}
+            </td>
+            <td style="padding: 10px 20px; border-bottom: 1px solid #eee">
+              {{ loan.date }}
+            </td>
+            <td style="padding: 10px 20px; border-bottom: 1px solid #eee">
+              {{ loan.interestRate }}%
+            </td>
+            <td style="padding: 10px 20px; border-bottom: 1px solid #eee">
+              ${{ loan.borrowed }}
+            </td>
+            <td style="padding: 10px 20px; border-bottom: 1px solid #eee">
+              ${{ loan.balance }}
+            </td>
+            <td style="padding: 10px 20px; border-bottom: 1px solid #eee">
+              {{ loan.status }}
+            </td>
+            <td style="padding: 10px 20px; border-bottom: 1px solid #eee">
+              <button
+                style="
+                  background: #007bff;
+                  color: #fff;
+                  border: none;
+                  border-radius: 5px;
+                  padding: 5px 10px;
+                  cursor: pointer;
+                "
+              >
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

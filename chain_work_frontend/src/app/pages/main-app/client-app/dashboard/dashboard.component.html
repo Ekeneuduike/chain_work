@@ -1,0 +1,50 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+<div class="dashboard">
+  <div class="header">
+    <h1> Dashboard</h1>
+  </div>
+  <div class="metrics">
+    <div class="metric">
+      <h3>Total Earnings</h3>
+      <p>${{ totalEarnings }}</p>
+      <span>+20.1% from last month</span>
+    </div>
+    <div class="metric">
+      <h3>Active Contracts</h3>
+      <p>+{{ activeContracts }}</p>
+      <span>+180.1% from last month</span>
+    </div>
+    <div class="metric">
+      <h3>Pending Proposals</h3>
+      <p>+{{ pendingProposals }}</p>
+      <span>+19% from last month</span>
+    </div>
+    <div class="metric">
+      <h3>Active Chats</h3>
+      <p>+{{ activeChats }}</p>
+      <span>+201 since last hour</span>
+    </div>
+  </div>
+  <div class="content">
+    
+    <div class="overview">
+      <h3>Overview</h3>
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="recent-proposals">
+      <h3>Recent Proposals</h3>
+      <ul>
+        @for(proposal of recentProposals; track proposal){
+          <li >
+            <span>{{ proposal.name }}</span>
+            <span>{{ proposal.project }}</span>
+            <span>+${{ proposal.amount }}</span>
+          </li>
+        }
+       
+      </ul>
+    </div>
+
+  </div>
+</div>

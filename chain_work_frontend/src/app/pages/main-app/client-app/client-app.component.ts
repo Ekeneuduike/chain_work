@@ -1,64 +1,53 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { once } from 'events';
 
 @Component({
   selector: 'app-client-app',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterOutlet, RouterModule, CommonModule],
   templateUrl: './client-app.component.html',
-  styleUrl: './client-app.component.css'
+  styleUrl: './client-app.component.css',
 })
 export class ClientAppComponent {
-  searchQuery = ''; // Search bar binding
-  filters = { type: '', location: '', experience: '' }; // Filters binding
+  closeNotification() {}
+  unread: boolean = true;
 
-  // Example jobs list
-  jobs = [
-    {
-      title: 'Frontend Developer',
-      description: 'Build amazing web applications.',
-      location: 'New York',
-      type: 'Full-Time',
-      experience: 'Mid',
-      date: 'Posted 2 days ago'
-    },
-    {
-      title: 'Backend Engineer',
-      description: 'Develop robust server-side logic.',
-      location: 'San Francisco',
-      type: 'Full-Time',
-      experience: 'Senior',
-      date: 'Posted 5 days ago'
-    },
-    {
-      title: 'UI/UX Designer',
-      description: 'Design visually appealing interfaces.',
-      location: 'Remote',
-      type: 'Freelance',
-      experience: 'Entry',
-      date: 'Posted 1 week ago'
-    },
-    {
-      title: 'Full Stack Developer',
-      description: 'Handle both frontend and backend.',
-      location: 'Austin',
-      type: 'Part-Time',
-      experience: 'Mid',
-      date: 'Posted 1 day ago'
+  isVisible: boolean = false;
+
+  triggerNotification() {
+    if (this.isVisible) {
+      this.toogleNotification();
+    } else {
+      this.isVisible = true;
     }
-  ];
-
-  // Filtered jobs list
-  get filteredJobs() {
-    return this.jobs.filter((job) => {
-      const matchesSearch = job.title.toLowerCase().includes(this.searchQuery.toLowerCase());
-      const matchesType = this.filters.type ? job.type === this.filters.type : true;
-      const matchesLocation = this.filters.location
-        ? job.location.toLowerCase().includes(this.filters.location.toLowerCase())
-        : true;
-      const matchesExperience = this.filters.experience ? job.experience === this.filters.experience : true;
-
-      return matchesSearch && matchesType && matchesLocation && matchesExperience;
-    });
   }
+
+  // Method to hide the notification
+  toogleNotification() {
+    this.isVisible = !this.isVisible;
+  }
+
+  notifications = [
+    {
+      topic: 'Success Notification',
+      message: 'The operation was completed successfully.',
+      timestamp: new Date(),
+      type: 'success',
+    },
+    {
+      topic: 'Error Notification',
+      message: 'Something went wrong, please try again.',
+      timestamp: new Date(),
+      type: 'error',
+    },
+    {
+      topic: 'Info Notification',
+      message: 'There is a new update available for your app.',
+      timestamp: new Date(),
+      type: 'info',
+    },
+  ];
 }

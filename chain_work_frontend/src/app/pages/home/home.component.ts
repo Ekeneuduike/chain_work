@@ -14,17 +14,17 @@ export class HomeComponent {
 
   features = [
     {
-      icon: 'assets/icons/milestone.svg',
+      icon: '/assets/icons/milestone.svg',
       title: 'Milestone-Based Payments',
       description: 'Secure payments released only upon project completion.'
     },
     {
-      icon: 'assets/icons/loan.svg',
+      icon: '/assets/icons/loan.svg',
       title: 'Loan Assistance',
       description: 'Get under-collateralized loans to start your project.'
     },
     {
-      icon: 'assets/icons/trust.svg',
+      icon: '/assets/icons/trust.svg',
       title: 'Built-in Trust',
       description: 'Transparent contracts to ensure fairness for all parties.'
     }
